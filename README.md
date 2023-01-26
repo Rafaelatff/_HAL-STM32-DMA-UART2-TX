@@ -54,6 +54,12 @@ void EXTI15_10_IRQHandler(void)
 }
 ```
 
+Transmittion starts right after the code enable the DMA transfer for transmit request by setting the DMAT bit in the UART CR3 register. It is possible to debug and see it by adding a breakpoint in the following line (*stm32f4xx_hal_uart.c* source file):
+
+```c
+	SET_BIT(huart->Instance->CR3, USART_CR3_DMAT);
+```
+
 Results so far:
 
 ![image](https://user-images.githubusercontent.com/58916022/214940313-3be16c52-b0df-41fb-a98e-4793d70994aa.png)
